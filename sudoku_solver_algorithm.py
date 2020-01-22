@@ -1,3 +1,7 @@
+#program uses a recursive backtracking algorithm to solve any sudoku board
+
+
+#this is the unsolved sudoku board
 board = [
         [5,3,0,0,7,0,0,0,0],
         [6,0,0,1,9,5,0,0,0],
@@ -27,6 +31,7 @@ def board_p(boa):
             else:
                 print(str(boa[i][j]) + ' ', end='')
 
+#finds any and all parts/points on the sudoku board that read zero/unsolved
 def empty_square(boa):
     for i in range(len(boa)):
         for j in range(len(boa[0])):
@@ -37,7 +42,7 @@ def empty_square(boa):
                 
 
 
-
+#actual solving algorithm that calls upon other functions and solved the board
 def solver(boa):
     find = empty_square(boa)
     if not find:
@@ -55,6 +60,7 @@ def solver(boa):
             
     return False
 
+#checks validity of certain squares
 def valid_square(boa, num, pos):    
     #check if row is valid
     for i in range(len(boa[0])):
@@ -74,6 +80,7 @@ def valid_square(boa, num, pos):
     
     return True
 
+#prints the board
 board_p(board)
 solver(board)
 print('____________________')
